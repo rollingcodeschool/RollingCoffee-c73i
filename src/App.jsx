@@ -13,8 +13,8 @@ function App() {
       <Menu></Menu>
       {/* <Inicio></Inicio> */}
       {/* <Administrador></Administrador> */}
-      <FormularioProducto></FormularioProducto>
-      {/* <Error404></Error404> */}
+ 
+      <Error404></Error404>
       <Footer></Footer>
     </>
   );
