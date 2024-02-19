@@ -6,9 +6,18 @@ import { leerProductosAPI } from "../../helpers/queries";
 const Administrador = () => {
 const [productos, setProductos] =  useState([]);
 
-useEffect(()=>{
- leerProductosAPI();
+useEffect(  ()=>{
+  consultarAPI()
 }, [])
+
+const consultarAPI = async()=>{
+  try{
+    const respuesta = await leerProductosAPI();
+    setProductos(respuesta);
+  }catch (error){
+    console.log(error)
+  }
+}
 
   return (
     <section className="container mainSection">
@@ -31,10 +40,9 @@ useEffect(()=>{
           </tr>
         </thead>
         <tbody>
-          <ItemProducto></ItemProducto>
-          <ItemProducto></ItemProducto>
-          <ItemProducto></ItemProducto>
-          <ItemProducto></ItemProducto>
+          {
+            productos.map((producto)=>  <ItemProducto key={producto.id} producto={producto}></ItemProducto>)
+          }
         </tbody>
       </Table>
     </section>
