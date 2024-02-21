@@ -1,13 +1,16 @@
 import { Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 
-
 const FormularioProducto = () => {
-  const {register, handleSubmit, formState:{errors}} = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-  const productoValidado = (producto)=>{
-    console.log(producto)
-  }
+  const productoValidado = (producto) => {
+    console.log(producto);
+  };
 
   return (
     <section className="container mainSection">
@@ -19,20 +22,22 @@ const FormularioProducto = () => {
           <Form.Control
             type="text"
             placeholder="Ej: Cafe"
-            {...register('nombreProducto',{
+            {...register("nombreProducto", {
               required: "El nombre del producto es obligatorio",
-              minLength:{
+              minLength: {
                 value: 2,
-                message: "El nombre del producto debe tener como minimo 2 caracteres"
+                message:
+                  "Debe ingresar como minimo 2 caracteres para el nombre del producto",
               },
-              maxLength:{
-                value: 20,
-                message: "El nombre del producto debe tener como maximo 20 caracteres"
-              }
+              maxLength: {
+                value: 50,
+                message:
+                  "Debe ingresar como maximo 50 caracteres para el nombre del producto",
+              },
             })}
           />
           <Form.Text className="text-danger">
-          {errors.nombreProducto?.message}
+            {errors.nombreProducto?.message}
           </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formPrecio">
@@ -40,10 +45,20 @@ const FormularioProducto = () => {
           <Form.Control
             type="number"
             placeholder="Ej: 50"
-            
+            {...register("precio", {
+              required: "El precio es obligatorio",
+              min: {
+                value: 50,
+                message: "El precio como minimo debe ser de $50",
+              },
+              max: {
+                value: 10000,
+                message: "El precio como maximo debe ser de $10000",
+              },
+            })}
           />
           <Form.Text className="text-danger">
-          prueba de error
+            {errors.precio?.message}
           </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formImagen">
@@ -51,22 +66,33 @@ const FormularioProducto = () => {
           <Form.Control
             type="text"
             placeholder="Ej: https://www.pexels.com/es-es/vans-en-blanco-y-negro-fuera-de-la-decoracion-para-colgar-en-la-pared-1230679/"
+            {...register("imagen", {
+              required: "La imagen es obligatoria",
+              pattern: {
+                value: /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|jpeg|gif|png)/,
+                message: "Debe ingresar una URL valida (jpg|jpeg|gif|png)",
+              },
+            })}
           />
           <Form.Text className="text-danger">
-        prueba de error
+            {errors.imagen?.message}
           </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formPrecio">
           <Form.Label>Categoría*</Form.Label>
-          <Form.Select>
+          <Form.Select
+            {...register("categoria", {
+              required: "La categoria es obligatoria",
+            })}
+          >
             <option value="">Seleccione una opcion</option>
             <option value="Infusiones">Infusiones</option>
             <option value="Batidos">Batidos</option>
-            <option value="dulce">Dulce</option>
-            <option value="salado">Salado</option>
+            <option value="Dulce">Dulce</option>
+            <option value="Salado">Salado</option>
           </Form.Select>
           <Form.Text className="text-danger">
-          prueba de error
+            {errors.categoria?.message}
           </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formImagen">
@@ -75,9 +101,22 @@ const FormularioProducto = () => {
             type="text"
             placeholder="Ej: Una taza de café suave y aromático."
             as="textarea"
+            {...register("descripcion_breve", {
+              required: "La descripcion breve del producto es obligatorio",
+              minLength: {
+                value: 5,
+                message:
+                  "Debe ingresar como minimo 5 caracteres para la descripcion breve",
+              },
+              maxLength: {
+                value: 50,
+                message:
+                  "Debe ingresar como maximo 50 caracteres para la descripcion breve",
+              },
+            })}
           />
           <Form.Text className="text-danger">
-        prueba de error
+            {errors.descripcion_breve?.message}
           </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formImagen">
@@ -86,13 +125,25 @@ const FormularioProducto = () => {
             type="text"
             placeholder="Ej: El café americano es una bebida caliente que consiste en un espresso diluido con agua caliente, lo que resulta en una taza de café suave y aromático. Es una opción popular para aquellos que prefieren un café menos intenso que el espresso tradicional. Perfecto para disfrutar en cualquier momento del día."
             as="textarea"
+            {...register("descripcion_amplia", {
+              required: "La descripcion amplia es obligatoria",
+              minLength: {
+                value: 50,
+                message:
+                  "Debe ingresar como minimo 50 caracteres para la descripcion amplia",
+              },
+              maxLength: {
+                value: 300,
+                message:
+                  "Debe ingresar como maximo 300 caracteres para la descripcion amplia",
+              },
+            })}
           />
           <Form.Text className="text-danger">
-        prueba de error
+            {errors.descripcion_amplia?.message}
           </Form.Text>
         </Form.Group>
-        
-        <Button type="submit" variant='success'>
+        <Button type="submit" variant="success">
           Guardar
         </Button>
       </Form>
