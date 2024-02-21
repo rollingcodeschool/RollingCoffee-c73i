@@ -13,16 +13,23 @@ const ItemProducto = ({producto}) => {
       cancelButtonColor: "#d33",
       confirmButtonText: "Borrar",
       cancelButtonText: "Cancelar"
-    }).then((result) => {
+    }).then(async (result) => {
       if (result.isConfirmed) {
         //agregar la logica si quiero borrar
-        borrarProductoAPI(producto.id);
-
+       const respuesta = await borrarProductoAPI(producto.id);
+       if(respuesta.status === 200){
+         Swal.fire({
+           title: "Producto eliminado",
+           text: `El producto "${producto.nombreProducto}" fue eliminado correctamente`,
+           icon: "success"
+         });
+       }else{
         Swal.fire({
-          title: "Producto eliminado",
-          text: `El producto "${producto.nombreProducto}" fue eliminado correctamente`,
-          icon: "success"
+          title: "Ocurrio un error",
+          text: `El producto "${producto.nombreProducto}" no fue eliminado. Intente realizar esta operación en unos minutos`,
+          icon: "error"
         });
+       }
       }
     });
   }
