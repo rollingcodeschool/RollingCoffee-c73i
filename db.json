@@ -26,6 +26,33 @@
       "categoria": "Infusiones",
       "descripcion_breve": "cafe rico",
       "descripcion_amplia": "asjfhs sjdfsd lsdkfjslkdf sdlkfjsdkfn sdfsdfsdfsss"
+    },
+    {
+      "id": "a77e",
+      "nombreProducto": "Brownie",
+      "precio": "750",
+      "imagen": "https://images.pexels.com/photos/2067396/pexels-photo-2067396.jpeg",
+      "categoria": "Dulce",
+      "descripcion_breve": "shdf sdjshdf j sdfjhsdjjsssssssss",
+      "descripcion_amplia": "skjdfhssk sddddddddddds ssssssssssssssddddddddddddddddddddd"
+    },
+    {
+      "id": "851a",
+      "nombreProducto": "Brownie con dulce de leche",
+      "precio": "780",
+      "imagen": "https://images.pexels.com/photos/2067396/pexels-photo-2067396.jpeg",
+      "categoria": "Dulce",
+      "descripcion_breve": "shdf sdjshdf j sdfjhsdjjsssssssss",
+      "descripcion_amplia": "skjdfhssk sddddddddddds ssssssssssssssddddddddddddddddddddd"
+    },
+    {
+      "id": "c9ba",
+      "nombreProducto": "brownie con almendras",
+      "precio": "850",
+      "imagen": "https://images.pexels.com/photos/887853/pexels-photo-887853.jpeg",
+      "categoria": "Dulce",
+      "descripcion_breve": "ds dfskdfj ssssssssssssdddd",
+      "descripcion_amplia": "sdddddddddddddddddd sssssssssssssssss sssssssssssssssssssssss"
     }
   ]
 }
