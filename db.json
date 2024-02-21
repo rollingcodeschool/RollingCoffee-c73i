@@ -1,24 +1,6 @@
 {
   "productos": [
     {
-      "id": "5895",
-      "nombreProducto": "café cortado",
-      "precio": "1400",
-      "imagen": "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg",
-      "categoria": "Infusiones",
-      "descripcion_breve": "cafe rico",
-      "descripcion_amplia": "asjfhs sjdfsd lsdkfjslkdf sdlkfjsdkfn sdfsdfsdfsss"
-    },
-    {
-      "id": "a77e",
-      "nombreProducto": "Brownie",
-      "precio": "750",
-      "imagen": "https://images.pexels.com/photos/2067396/pexels-photo-2067396.jpeg",
-      "categoria": "Dulce",
-      "descripcion_breve": "shdf sdjshdf j sdfjhsdjjsssssssss",
-      "descripcion_amplia": "skjdfhssk sddddddddddds ssssssssssssssddddddddddddddddddddd"
-    },
-    {
       "id": "851a",
       "nombreProducto": "Brownie con dulce de leche",
       "precio": "780",
