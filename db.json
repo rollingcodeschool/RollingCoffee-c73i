@@ -17,6 +17,15 @@
       "categoria": "Dulce",
       "descripcion_breve": "ds dfskdfj ssssssssssssdddd",
       "descripcion_amplia": "sdddddddddddddddddd sssssssssssssssss sssssssssssssssssssssss"
+    },
+    {
+      "id": "c302",
+      "nombreProducto": "Té Verde Orgánico",
+      "precio": "1298",
+      "imagen": "https://images.pexels.com/photos/887853/pexels-photo-887853.jpeg",
+      "categoria": "Infusiones",
+      "descripcion_breve": "sdffffffffffffffffffssssssssssssssss aaaaaaa",
+      "descripcion_amplia": "sssssssssssssssss ssssssssssssssssssssssssssssssssssssssssssssssssssssssss"
     }
   ]
 }
