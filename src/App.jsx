@@ -9,6 +9,7 @@ import Inicio from "./components/pages/Inicio";
 import FormularioProducto from "./components/pages/producto/FormularioProducto";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import DetalleProducto from "./components/pages/DetalleProducto";
+import Login from "./components/pages/producto/Login";
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Inicio></Inicio>}></Route>
         <Route exact path="/detalleProducto" element={<DetalleProducto></DetalleProducto>}></Route>
+        <Route exact path="/login"
+          element={<Login></Login>}
+        ></Route>
         <Route exact path="/administrador"
           element={<Administrador></Administrador>}
         ></Route>
