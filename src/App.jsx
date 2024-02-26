@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import 'bootstrap-icons/font/bootstrap-icons.min.css';
+import "bootstrap-icons/font/bootstrap-icons.min.css";
 import "./App.css";
 import Footer from "./components/common/Footer";
 import Menu from "./components/common/Menu";
@@ -17,15 +17,27 @@ function App() {
       <Menu></Menu>
       <Routes>
         <Route exact path="/" element={<Inicio></Inicio>}></Route>
-        <Route exact path="/detalleProducto" element={<DetalleProducto></DetalleProducto>}></Route>
-        <Route exact path="/login"
-          element={<Login></Login>}
+        <Route
+          exact
+          path="/detalleProducto"
+          element={<DetalleProducto></DetalleProducto>}
         ></Route>
-        <Route exact path="/administrador"
+        <Route exact path="/login" element={<Login></Login>}></Route>
+        <Route
+          exact
+          path="/administrador"
           element={<Administrador></Administrador>}
         ></Route>
-          <Route exact path="/administrador/crear" element={<FormularioProducto editar={false}></FormularioProducto>}></Route>
-        <Route exact path="/administrador/editar/:id" element={<FormularioProducto editar={true}></FormularioProducto>}></Route>
+        <Route
+          exact
+          path="/administrador/crear"
+          element={<FormularioProducto editar={false} titulo='Nuevo producto'></FormularioProducto>}
+        ></Route>
+        <Route
+          exact
+          path="/administrador/editar/:id"
+          element={<FormularioProducto editar={true} titulo='Editar producto'></FormularioProducto>}
+        ></Route>
         <Route path="*" element={<Error404></Error404>}></Route>
       </Routes>
       <Footer></Footer>
