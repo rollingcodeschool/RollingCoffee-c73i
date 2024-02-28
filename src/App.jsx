@@ -10,8 +10,12 @@ import FormularioProducto from "./components/pages/producto/FormularioProducto";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import DetalleProducto from "./components/pages/DetalleProducto";
 import Login from "./components/pages/producto/Login";
+import { useState } from "react";
 
 function App() {
+ const usuario = JSON.parse(sessionStorage.getItem('usuarioRollingCoffee')) || ''
+ const [usuarioLogueado, setUsuarioLogueado] = useState(usuario);
+
   return (
     <BrowserRouter>
       <Menu></Menu>
@@ -22,7 +26,7 @@ function App() {
           path="/detalleProducto"
           element={<DetalleProducto></DetalleProducto>}
         ></Route>
-        <Route exact path="/login" element={<Login></Login>}></Route>
+        <Route exact path="/login" element={<Login setUsuarioLogueado={setUsuarioLogueado}></Login>}></Route>
         <Route
           exact
           path="/administrador"
