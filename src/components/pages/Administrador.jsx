@@ -31,7 +31,7 @@ const consultarAPI = async()=>{
       <Table responsive striped bordered hover>
         <thead>
           <tr className="text-center">
-            <th>Cod</th>
+            {/* <th>Cod</th> */}
             <th>Producto</th>
             <th>Precio</th>
             <th>URL de Imagen</th>
