@@ -4,21 +4,20 @@ import { leerProductosAPI } from "../../helpers/queries";
 import { useEffect, useState } from "react";
 
 const Inicio = () => {
-  const [productos, setProductos] =  useState([]);
+  const [productos, setProductos] = useState([]);
 
-useEffect(  ()=>{
-  consultarAPI()
-}, [])
+  useEffect(() => {
+    consultarAPI();
+  }, []);
 
-const consultarAPI = async()=>{
-  try{
-    const respuesta = await leerProductosAPI();
-    setProductos(respuesta);
-  }catch (error){
-    console.log(error)
-  }
-}
-
+  const consultarAPI = async () => {
+    try {
+      const respuesta = await leerProductosAPI();
+      setProductos(respuesta);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <section className="mainSection">
@@ -30,13 +29,12 @@ const consultarAPI = async()=>{
       <Container className="mt-5">
         <h1 className="display-4">Nuestros Productos</h1>
         <hr />
-    
-          <Row>
-            {
-productos.map ((producto)=>(  <CardProducto key={producto.id} producto={producto}></CardProducto>))
-            }
-          </Row>
-       
+
+        <Row>
+          {productos.map((producto) => (
+            <CardProducto key={producto._id} producto={producto}></CardProducto>
+          ))}
+        </Row>
       </Container>
     </section>
   );

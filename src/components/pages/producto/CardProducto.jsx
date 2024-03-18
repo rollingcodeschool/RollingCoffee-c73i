@@ -1,4 +1,5 @@
 import { Col, Card, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const CardProducto = ({producto}) => {
  
@@ -15,7 +16,7 @@ const CardProducto = ({producto}) => {
           <span className="fw-bold">Precio: ${producto.precio}</span></Card.Text>
         </Card.Body>
         <Card.Footer className="text-end">
-        <Button className='btn btn-success me-2' >Ver más</Button>
+        <Link className='btn btn-success me-2' to={'/detalleProducto/'+ producto._id} >Ver más</Link>
       </Card.Footer>
       </Card>
     </Col>
