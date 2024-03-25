@@ -1,5 +1,6 @@
 const URL_Productos = import.meta.env.VITE_API_PRODUCTO;
 const URL_Producto = import.meta.env.VITE_API_PRODUCTO_INDIVIDUAL;
+const URL_Usuario = import.meta.env.VITE_API_USUARIO;
 
 console.log(URL_Productos);
 
@@ -73,23 +74,20 @@ export const editarProductoAPI = async (productoModificado, id) => {
   }
 };
 
-//modificar el login cuando tengamos un backend
-const userAdmin = {
-  mail: "admin@rollingcoffee.com",
-  password: "123Aa$123",
-};
-
-export const login = (usuario) => {
-  if (
-    usuario.mail === userAdmin.mail &&
-    usuario.password === userAdmin.password
-  ) {
-    sessionStorage.setItem(
-      "usuarioRollingCoffee",
-      JSON.stringify(usuario.mail)
-    );
-    return true;
-  }else{
-    return false;
+//nuevo login usando el backend
+export const login = async (usuario) =>{
+  try {
+    console.log(usuario);
+    const respuesta = await fetch(URL_Usuario, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(usuario),
+    });
+    return  respuesta
+  } catch (error) {
+    console.log("errores en el login");
+    return;
   }
-};
+}

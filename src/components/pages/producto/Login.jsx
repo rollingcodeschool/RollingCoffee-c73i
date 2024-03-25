@@ -4,8 +4,7 @@ import { login } from "../../../helpers/queries";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router";
 
-
-const Login = ({setUsuarioLogueado}) => {
+const Login = ({ setUsuarioLogueado }) => {
   const {
     register,
     handleSubmit,
@@ -13,21 +12,19 @@ const Login = ({setUsuarioLogueado}) => {
   } = useForm();
   const navegacion = useNavigate();
 
-  const onSubmit = (usuario) => {
-    if(login(usuario)){
-      Swal.fire({
-        title: "Usuario Logueado",
-        text: `Bienvenido ${usuario.mail}`,
-        icon: "success",
-      });
-      navegacion('/administrador');
-      setUsuarioLogueado(usuario.mail)
-    }else{
-      Swal.fire({
-        title: "Ocurrio un error",
-        text: `El nombre de usuario o password es incorrecto`,
-        icon: "error",
-      });
+  const onSubmit = async (usuario) => {
+    const respuesta = await login(usuario);
+    if (respuesta.status === 200) {
+      Swal.fire("¡Bienvenido!", "Has iniciado sesión correctamente", "success");
+      const datos = await respuesta.json();
+      sessionStorage.setItem(
+        "usuarioRollingCoffee",
+        JSON.stringify({ email: datos.email, token: datos.token })
+      );
+      setUsuarioLogueado(datos);
+      navegacion("/administrador");
+    } else {
+      Swal.fire("Ocurrió un error", "Correo o contraseña incorrectos", "error");
     }
   };
 
