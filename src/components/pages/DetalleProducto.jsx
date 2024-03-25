@@ -32,7 +32,8 @@ const cargarDetalle = async()=>{
         <Row>
           <Col md={6}>
             <Card.Img
-              variant={producto.nombreProducto}
+            
+              alt={producto.nombreProducto}
               src={producto.imagen}
             />
           </Col>

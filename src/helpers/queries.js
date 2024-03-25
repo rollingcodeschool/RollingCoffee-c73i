@@ -33,6 +33,7 @@ export const crearProductoAPI = async (productoNuevo) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        'x-token': JSON.parse(sessionStorage.getItem('usuarioRollingCoffee')).token
       },
       body: JSON.stringify(productoNuevo),
     });
@@ -50,6 +51,9 @@ export const borrarProductoAPI = async (id) => {
   try {
     const respuesta = await fetch(`${URL_Producto}/${id}`, {
       method: "DELETE",
+      headers: {
+      'x-token': JSON.parse(sessionStorage.getItem('usuarioRollingCoffee')).token
+      }
     });
     console.log(respuesta);
     return respuesta;
@@ -65,6 +69,7 @@ export const editarProductoAPI = async (productoModificado, id) => {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
+        'x-token': JSON.parse(sessionStorage.getItem('usuarioRollingCoffee')).token
       },
       body: JSON.stringify(productoModificado),
     });
