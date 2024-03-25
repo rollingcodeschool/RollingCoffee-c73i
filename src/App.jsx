@@ -16,7 +16,7 @@ import RutasAdmin from "./components/routes/RutasAdmin";
 
 function App() {
   const usuario =
-    JSON.parse(sessionStorage.getItem("usuarioRollingCoffee")) || "";
+    JSON.parse(sessionStorage.getItem("usuarioRollingCoffee")) || {};
   const [usuarioLogueado, setUsuarioLogueado] = useState(usuario);
 
   return (
