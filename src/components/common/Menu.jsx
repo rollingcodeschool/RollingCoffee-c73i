@@ -8,7 +8,7 @@ const Menu = ({ usuarioLogueado, setUsuarioLogueado }) => {
     //limpiar sessionStorage
     sessionStorage.removeItem("usuarioRollingCoffee");
     //actualiza el state
-    setUsuarioLogueado("");
+    setUsuarioLogueado({});
     navegacion("/");
   };
 
@@ -29,7 +29,7 @@ const Menu = ({ usuarioLogueado, setUsuarioLogueado }) => {
             <NavLink end className="nav-link" to="/">
               Inicio
             </NavLink>
-            {usuarioLogueado !== "" ? (
+            {usuarioLogueado.email ? (
               <>
                 <NavLink end className="nav-link" to="/administrador">
                   Administrador
